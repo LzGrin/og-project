@@ -8,11 +8,11 @@ import {Profile} from '../interfaces/profile.interface';
 export class ProfileService {
   http = inject(HttpClient); // inject - запросить что-то, чтобы вводить
 
- // baseApiUrl = 'http://og.ru/yt-course/'
+  baseApiUrl = 'http://og.ru/yt-course/';
   constructor() { }
 
   getTestAccounts() {
-   // return this.http.get<Profile[]>(`${this.baseApiUrl}account/test_accounts`)
+    // return this.http.get<Profile[]>(`${this.baseApiUrl}account/test_accounts`)
 
     return [
       {
@@ -31,5 +31,9 @@ export class ProfileService {
         city: "New-York"
       }
     ]
+  }
+
+  getMe() {
+    return this.http.get<Profile>(`${this.baseApiUrl}account/me`)
   }
 }
